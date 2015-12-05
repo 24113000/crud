@@ -1,14 +1,20 @@
-package com.sbezgin.db;
+package com.sbezgin.crud.db;
+
+import javax.persistence.*;
 
 /**
  * Created by sergii.bezgin on 05.12.2015.
  * It is my class ha-ha-ha
  */
+@Entity
+@Table(name = "USER")
 public class User {
     private int id;
     private String userName;
     private String email;
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -17,6 +23,7 @@ public class User {
         this.id = id;
     }
 
+    @Column(name = "user_name", nullable = false)
     public String getUserName() {
         return userName;
     }
@@ -25,6 +32,7 @@ public class User {
         this.userName = userName;
     }
 
+    @Column(name = "email", nullable = false)
     public String getEmail() {
         return email;
     }
